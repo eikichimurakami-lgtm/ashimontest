@@ -1768,8 +1768,9 @@
                 });
 
                 // スマホ用タッチイベント
-                heroMembers.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
+                heroMembers.addEventListener('click', function(e) {
+                    // タッチデバイスのみ
+                    if (!('ontouchstart' in window)) return;
                     
                     if (!isShowingHover) {
                         // 切り替え表示
