@@ -238,14 +238,11 @@
             opacity: 0;
             width: 100%;
             height: 100%;
+            transition: opacity 0.3s ease;
         }
 
-        .hero-members:hover .hero-members-default {
-            opacity: 0;
-        }
-
-        .hero-members:hover .hero-members-hover {
-            opacity: 1;
+        .hero-members-default {
+            transition: opacity 0.3s ease;
         }
 
         .member-img {
@@ -1733,6 +1730,37 @@
                     mainText.textContent = content;
                 });
             });
+        })();
+
+        // メンバー画像ホバー - 3秒後に自動で戻る
+        (function() {
+            const heroMembers = document.querySelector('.hero-members');
+            const defaultImg = document.querySelector('.hero-members-default');
+            const hoverImg = document.querySelector('.hero-members-hover');
+            let hoverTimer = null;
+
+            if (heroMembers && defaultImg && hoverImg) {
+                heroMembers.addEventListener('mouseenter', function() {
+                    defaultImg.style.opacity = '0';
+                    hoverImg.style.opacity = '1';
+                    
+                    // 3秒後に自動で戻る
+                    hoverTimer = setTimeout(function() {
+                        defaultImg.style.opacity = '1';
+                        hoverImg.style.opacity = '0';
+                    }, 3000);
+                });
+
+                heroMembers.addEventListener('mouseleave', function() {
+                    // タイマーをクリア
+                    if (hoverTimer) {
+                        clearTimeout(hoverTimer);
+                        hoverTimer = null;
+                    }
+                    defaultImg.style.opacity = '1';
+                    hoverImg.style.opacity = '0';
+                });
+            }
         })();
     </script>
 </body>
