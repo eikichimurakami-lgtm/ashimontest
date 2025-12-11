@@ -1738,16 +1738,21 @@
             const defaultImg = document.querySelector('.hero-members-default');
             const hoverImg = document.querySelector('.hero-members-hover');
             let hoverTimer = null;
+            let isShowingHover = false;
 
             if (heroMembers && defaultImg && hoverImg) {
+                // PC用マウスイベント
                 heroMembers.addEventListener('mouseenter', function() {
                     defaultImg.style.opacity = '0';
                     hoverImg.style.opacity = '1';
+                    isShowingHover = true;
                     
                     // 3秒後に自動で戻る
+                    if (hoverTimer) clearTimeout(hoverTimer);
                     hoverTimer = setTimeout(function() {
                         defaultImg.style.opacity = '1';
                         hoverImg.style.opacity = '0';
+                        isShowingHover = false;
                     }, 3000);
                 });
 
@@ -1759,6 +1764,27 @@
                     }
                     defaultImg.style.opacity = '1';
                     hoverImg.style.opacity = '0';
+                    isShowingHover = false;
+                });
+
+                // スマホ用タッチイベント
+                heroMembers.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    
+                    if (!isShowingHover) {
+                        // 切り替え表示
+                        defaultImg.style.opacity = '0';
+                        hoverImg.style.opacity = '1';
+                        isShowingHover = true;
+                        
+                        // 3秒後に自動で戻る
+                        if (hoverTimer) clearTimeout(hoverTimer);
+                        hoverTimer = setTimeout(function() {
+                            defaultImg.style.opacity = '1';
+                            hoverImg.style.opacity = '0';
+                            isShowingHover = false;
+                        }, 3000);
+                    }
                 });
             }
         })();
