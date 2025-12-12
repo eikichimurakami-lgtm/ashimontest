@@ -606,6 +606,20 @@
             background: var(--white);
             padding: 50px 20px;
             position: relative;
+            overflow: hidden;
+        }
+
+        .events-section::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: url('green.webp') no-repeat center;
+            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .events-wrapper {
@@ -734,6 +748,34 @@
         .content-section {
             background: var(--white);
             padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: calc(50% - 320px);
+            width: 120px;
+            height: 120px;
+            background: url('pup.webp') no-repeat center;
+            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .content-section::after {
+            content: '';
+            position: absolute;
+            bottom: 80px;
+            right: calc(50% - 580px);
+            width: 140px;
+            height: 140px;
+            background: url('pink.webp') no-repeat center;
+            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .content-wrapper {
@@ -880,6 +922,21 @@
         .tweets-section {
             background: var(--white);
             padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tweets-section::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: calc(50% - 300px);
+            width: 120px;
+            height: 120px;
+            background: url('blue.webp') no-repeat center;
+            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .tweets-wrapper {
@@ -986,6 +1043,34 @@
         .members-section {
             background: var(--white);
             padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .members-section::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: calc(50% - 580px);
+            width: 150px;
+            height: 150px;
+            background: url('red.webp') no-repeat center;
+            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .members-section::after {
+            content: '';
+            position: absolute;
+            bottom: 40px;
+            left: calc(50% - 600px);
+            width: 180px;
+            height: 180px;
+            background: url('green2.webp') no-repeat center;
+            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .members-wrapper {
@@ -1126,6 +1211,35 @@
 
         /* ========== レスポンシブ ========== */
         @media (max-width: 768px) {
+            .content-section::before {
+                top: 25px;
+                right: auto;
+                left: calc(50% + 100px);
+                width: 90px;
+                height: 90px;
+            }
+
+            .tweets-section::before {
+                top: 15px;
+                left: -50px;
+                width: 150px;
+                height: 150px;
+            }
+
+            .members-section::before {
+                top: 10px;
+                right: -50px;
+                width: 120px;
+                height: 120px;
+            }
+
+            .members-section::after {
+                bottom: 20px;
+                left: -60px;
+                width: 140px;
+                height: 140px;
+            }
+
             .header {
                 padding: 10px 15px;
             }
@@ -1411,7 +1525,7 @@
                     <img src="ashimon-logo.png" alt="あしもん ASHIMON" class="hero-logo-image">
                 </div>
                 <a href="#" class="cta-btn cta-btn-desktop">
-                    入会特典内容はこちらから
+                    特典内容はこちら
                     <span class="arrow"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#fff"/><polygon points="16,12 16,28 28,20" fill="#e52020"/></svg></span>
                 </a>
             </div>
@@ -1422,7 +1536,7 @@
             </div>
 
             <a href="#" class="cta-btn cta-btn-mobile">
-                入会特典内容はこちらから
+                特典内容はこちら
                 <span class="arrow"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#fff"/><polygon points="16,12 16,28 28,20" fill="#e52020"/></svg></span>
             </a>
         </div>
